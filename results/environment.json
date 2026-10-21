@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-10-21T08:44:37.102385+00:00",
+  "python": "3.12.14",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "system": "Windows",
+  "machine": "AMD64",
+  "packages": {
+    "torch": null,
+    "triton": null,
+    "pytest": null
+  },
+  "tools": {
+    "nvidia-smi": true,
+    "nvcc": false,
+    "git": true
+  },
+  "cuda_available": null,
+  "gpu_target": "Linux, NVIDIA CUDA, compute capability >= 8.0; unverified until tested",
+  "nvidia_smi": {
+    "returncode": 0,
+    "stdout": "GeForce GT 730, 388.13, 4096 MiB",
+    "stderr": ""
+  },
+  "gpu_preflight_ready": false,
+  "validation_note": "Inventory is a preflight check, not evidence that a Triton kernel compiled or ran.",
+  "sanitization": "Local executable paths removed; tool values report availability only."
+}
