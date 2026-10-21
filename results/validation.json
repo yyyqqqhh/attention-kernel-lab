@@ -1,0 +1,81 @@
+{
+  "timestamp_utc": "2026-10-21T08:47:45.991708+00:00",
+  "python": "3.12.14",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "syntax": {
+    "files_checked": 15,
+    "errors": [],
+    "scope": "Python AST parse only; no Triton JIT compilation"
+  },
+  "tests": {
+    "run": 33,
+    "passed": 18,
+    "skipped": [
+      {
+        "test": "test_gpu.GPUAttentionTests.test_gpu_contract_rejections",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_gpu.GPUAttentionTests.test_head_dimensions_and_dtypes",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_gpu.GPUAttentionTests.test_irregular_rectangular_and_causal",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_gpu.GPUAttentionTests.test_large_logits_remain_finite",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_gpu.GPUAttentionTests.test_tile_variants",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_auto_does_not_hide_eligible_launch_failure",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_auto_reference_on_cpu",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_dtype_and_custom_scale",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_oracle_matches_sdpa",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_reference_preserves_autograd",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_rejects_bad_options",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_rejects_invalid_tensor_contracts",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_rejects_noncontiguous_equal_shape",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_stable_large_scores",
+        "reason": "optional PyTorch dependency is not installed"
+      },
+      {
+        "test": "test_torch_ops.TorchReferenceTests.test_upper_left_causal_alignment",
+        "reason": "optional PyTorch dependency is not installed"
+      }
+    ],
+    "failures": [],
+    "errors": []
+  },
+  "log": "test_config_rejects_unsafe_reference_and_invalid_runs (test_benchmark_helpers.BenchmarkHelpersTests.test_config_rejects_unsafe_reference_and_invalid_runs) ... ok\ntest_logical_flops_match_explicit_rectangular_mask (test_benchmark_helpers.BenchmarkHelpersTests.test_logical_flops_match_explicit_rectangular_mask) ... ok\ntest_percentile_interpolation (test_benchmark_helpers.BenchmarkHelpersTests.test_percentile_interpolation) ... ok\ntest_bad_arguments_fail_before_work (test_cli.CliTests.test_bad_arguments_fail_before_work) ... ok\ntest_demo_rectangular_causal_and_json_file (test_cli.CliTests.test_demo_rectangular_causal_and_json_file) ... ok\ntest_doctor_is_read_only_inventory (test_cli.CliTests.test_doctor_is_read_only_inventory) ... ok\ntest_help_without_frameworks (test_cli.CliTests.test_help_without_frameworks) ... ok\ntest_missing_optional_framework_has_clear_failure (test_cli.CliTests.test_missing_optional_framework_has_clear_failure) ... ok\ntest_gpu_contract_rejections (test_gpu.GPUAttentionTests.test_gpu_contract_rejections) ... skipped 'optional PyTorch dependency is not installed'\ntest_head_dimensions_and_dtypes (test_gpu.GPUAttentionTests.test_head_dimensions_and_dtypes) ... skipped 'optional PyTorch dependency is not installed'\ntest_irregular_rectangular_and_causal (test_gpu.GPUAttentionTests.test_irregular_rectangular_and_causal) ... skipped 'optional PyTorch dependency is not installed'\ntest_large_logits_remain_finite (test_gpu.GPUAttentionTests.test_large_logits_remain_finite) ... skipped 'optional PyTorch dependency is not installed'\ntest_tile_variants (test_gpu.GPUAttentionTests.test_tile_variants) ... skipped 'optional PyTorch dependency is not installed'\ntest_against_independent_decimal_oracle (test_online.OnlineAttentionTests.test_against_independent_decimal_oracle) ... ok\ntest_key_translation_leaves_probabilities_unchanged (test_online.OnlineAttentionTests.test_key_translation_leaves_probabilities_unchanged) ... ok\ntest_large_logits_and_running_maximum_changes (test_online.OnlineAttentionTests.test_large_logits_and_running_maximum_changes) ... ok\ntest_overflow_fails_explicitly (test_online.OnlineAttentionTests.test_overflow_fails_explicitly) ... ok\ntest_reject_invalid_block_size (test_online.OnlineAttentionTests.test_reject_invalid_block_size) ... ok\ntest_reject_invalid_inputs (test_online.OnlineAttentionTests.test_reject_invalid_inputs) ... ok\ntest_repeated_keys_split_weight_without_changing_result (test_online.OnlineAttentionTests.test_repeated_keys_split_weight_without_changing_result) ... ok\ntest_uniform_scores_average_values (test_online.OnlineAttentionTests.test_uniform_scores_average_values) ... ok\ntest_upper_left_causal_excludes_future_values (test_online.OnlineAttentionTests.test_upper_left_causal_excludes_future_values) ... ok\ntest_value_translation (test_online.OnlineAttentionTests.test_value_translation) ... ok\ntest_auto_does_not_hide_eligible_launch_failure (test_torch_ops.TorchReferenceTests.test_auto_does_not_hide_eligible_launch_failure) ... skipped 'optional PyTorch dependency is not installed'\ntest_auto_reference_on_cpu (test_torch_ops.TorchReferenceTests.test_auto_reference_on_cpu) ... skipped 'optional PyTorch dependency is not installed'\ntest_dtype_and_custom_scale (test_torch_ops.TorchReferenceTests.test_dtype_and_custom_scale) ... skipped 'optional PyTorch dependency is not installed'\ntest_oracle_matches_sdpa (test_torch_ops.TorchReferenceTests.test_oracle_matches_sdpa) ... skipped 'optional PyTorch dependency is not installed'\ntest_reference_preserves_autograd (test_torch_ops.TorchReferenceTests.test_reference_preserves_autograd) ... skipped 'optional PyTorch dependency is not installed'\ntest_rejects_bad_options (test_torch_ops.TorchReferenceTests.test_rejects_bad_options) ... skipped 'optional PyTorch dependency is not installed'\ntest_rejects_invalid_tensor_contracts (test_torch_ops.TorchReferenceTests.test_rejects_invalid_tensor_contracts) ... skipped 'optional PyTorch dependency is not installed'\ntest_rejects_noncontiguous_equal_shape (test_torch_ops.TorchReferenceTests.test_rejects_noncontiguous_equal_shape) ... skipped 'optional PyTorch dependency is not installed'\ntest_stable_large_scores (test_torch_ops.TorchReferenceTests.test_stable_large_scores) ... skipped 'optional PyTorch dependency is not installed'\ntest_upper_left_causal_alignment (test_torch_ops.TorchReferenceTests.test_upper_left_causal_alignment) ... skipped 'optional PyTorch dependency is not installed'\n\n----------------------------------------------------------------------\nRan 33 tests in 2.141s\n\nOK (skipped=15)\n",
+  "success": true,
+  "evidence_note": "Local CPU/static evidence only; no supported GPU execution. Machine-local paths omitted."
+}
