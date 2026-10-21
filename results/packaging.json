@@ -1,0 +1,62 @@
+{
+  "local_install": "wheel built and installed into a dedicated target directory with --no-index --no-deps --no-build-isolation",
+  "console_entrypoint": [
+    {
+      "command": [
+        "demo",
+        "--causal"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "status": "passed",
+        "implementation": "stdlib Python double precision; not a GPU performance result",
+        "shape": {
+          "nq": 7,
+          "nk": 11,
+          "dim": 4
+        },
+        "causal": true,
+        "causal_alignment": "upper-left (j <= i)",
+        "scale": null,
+        "effective_scale": 0.5,
+        "block_size": 3,
+        "seed": 0,
+        "max_abs_error": 4.440892098500626e-16,
+        "tolerance": 1e-10,
+        "output_preview": [
+          [
+            0.45109271947442675,
+            0.6266375559585153,
+            -0.09387603196247696,
+            -1.6407025552176253
+          ],
+          [
+            0.9303376216097595,
+            1.3549847591806305,
+            1.3847506248432753,
+            0.8497693900102262
+          ]
+        ]
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "check"
+      ],
+      "exit_code": 2,
+      "stdout": null,
+      "stderr": "error: PyTorch is unavailable; install the documented CPU or GPU environment for check"
+    },
+    {
+      "command": [
+        "bench"
+      ],
+      "exit_code": 2,
+      "stdout": null,
+      "stderr": "error: PyTorch is unavailable; install the documented GPU environment to benchmark"
+    }
+  ],
+  "markdown_local_links": "all resolve",
+  "utf8_documents": "decoded without replacement characters"
+}
