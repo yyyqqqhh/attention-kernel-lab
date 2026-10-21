@@ -1,0 +1,77 @@
+name: correctness
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_gpu:
+        description: Run on an owner-provisioned Linux NVIDIA SM80 runner
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  stdlib:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.11', '3.12']
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONPATH: src
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Dependency-free suite (framework/GPU cases report skips)
+        run: python -m unittest discover -s tests -v
+      - name: CLI smoke
+        run: python -m attention_kernel_lab demo
+
+  torch-cpu:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.11', '3.12']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements/cpu.txt
+      - run: python -m pip install -e .
+      - name: Framework CPU suite (GPU cases report skips)
+        run: python -m unittest discover -s tests -v
+
+  gpu:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_gpu
+    # The owner must provision this dedicated runner. GitHub-hosted CPU runners
+    # cannot validate the Triton kernel. Do not enable this job on untrusted PRs.
+    runs-on: [self-hosted, linux, x64, nvidia-sm80]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements/gpu-cu124.txt
+      - run: python -m pip install -e .
+      - name: Require real SM80 CUDA hardware
+        run: >-
+          python -c "import sys, torch, triton;
+          assert sys.platform == 'linux';
+          assert torch.version.hip is None;
+          assert torch.cuda.is_available();
+          assert torch.cuda.get_device_capability() == (8, 0), 'SM80 runner label must match hardware'"
+      - name: Run GPU suite; skipped tests cannot count as GPU validation
+        run: >-
+          python -c "import unittest;
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_gpu.py');
+          result = unittest.TextTestRunner(verbosity=2).run(suite);
+          raise SystemExit(0 if result.wasSuccessful() and result.testsRun > 0 and not result.skipped else 1)"
