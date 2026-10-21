@@ -1,0 +1,4 @@
+# Windows/Linux x86-64, CPython 3.10-3.12. Optional framework tests.
+# Top-level version pin, not a full transitive dependency lock.
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1+cpu
