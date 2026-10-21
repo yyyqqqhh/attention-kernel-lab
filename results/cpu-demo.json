@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "implementation": "stdlib Python double precision; not a GPU performance result",
+  "shape": {
+    "nq": 9,
+    "nk": 13,
+    "dim": 4
+  },
+  "causal": true,
+  "causal_alignment": "upper-left (j <= i)",
+  "scale": null,
+  "block_size": 3,
+  "seed": 0,
+  "max_abs_error": 2.220446049250313e-16,
+  "tolerance": 1e-10,
+  "output_preview": [
+    [
+      1.5801558697067009,
+      0.3592047341246394,
+      1.7990594929284822,
+      0.3187800429824237
+    ],
+    [
+      0.4210018019891116,
+      0.5429170174890112,
+      1.9203090714848539,
+      1.1982885773732157
+    ]
+  ]
+}
